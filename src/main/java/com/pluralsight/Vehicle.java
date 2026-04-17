@@ -7,12 +7,12 @@ public class Vehicle {
     private String odometerReading;
     private double price;
 
-    public Vehicle() {
-        this.vehicleId = 0;
-        this.makeModel = " ";
-        this.color = " ";
-        this.odometerReading = " ";
-        this.price = 0;
+    public Vehicle(long vehicleId, String makeModel, String color, String odometerReading, double price) {
+        this.vehicleId = vehicleId;
+        this.makeModel = makeModel;
+        this.color = color;
+        this.odometerReading = odometerReading;
+        this.price = price;
     }
 
     public long getVehicleId() {
