@@ -1,8 +1,7 @@
 package com.pluralsight;
-import com.pluralsight.Vehicle;
 import java.util.Scanner;
 
-public class Main {
+public class MainMenuOnly {
     public static void main(String[] args){
         Vehicle[] vehicles = new Vehicle[20];
 
@@ -38,14 +37,15 @@ public class Main {
 
             switch (command) {
                 case 1:
-                    System.out.println("Vehicle ID   Make / Model        Color       Mileage        Price");
-                    for(int i = 0; i < numberOfVehicles; i++){
-                        Vehicle v = vehicles[i];
-                        System.out.print(v);
-                    }
+                        doDisplayAllVehicles(vehicles, numberOfVehicles);
                     break;
             }
         }while (command != 6);
+    }
+
+    public static void doDisplayAllVehicles(Vehicle[] vehicles, int numberOfVehicles){
+
+        System.out.println("Do the display ...");
     }
 
 }
