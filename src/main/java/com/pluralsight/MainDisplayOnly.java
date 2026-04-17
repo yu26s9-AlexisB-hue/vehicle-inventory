@@ -23,7 +23,7 @@ public class MainDisplayOnly {
         System.out.println("Vehicle ID   Make / Model        Color       Mileage        Price");
         for(int i = 0; i < numberOfVehicles; i++){
             Vehicle v = vehicles[i];
-            System.out.printf("%d %s %s %s %.2f\n" , v.getVehicleId(), v.getMakeModel(), v.getColor(), v.getOdometerReading(), v.getPrice());
+            System.out.printf("%8d %15s %12s %13s %15.2f\n" , v.getVehicleId(), v.getMakeModel(), v.getColor(), v.getOdometerReading(), v.getPrice());
             //System.out.print(v);
         }
 
