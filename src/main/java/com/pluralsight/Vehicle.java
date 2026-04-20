@@ -14,6 +14,10 @@ public class Vehicle {
         this.odometerReading = odometerReading;
         this.price = price;
     }
+//
+//    public Vehicle(){
+//         // do nothing
+//    }
 
     public long getVehicleId() {
         return vehicleId;

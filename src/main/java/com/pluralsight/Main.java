@@ -38,14 +38,78 @@ public class Main {
 
             switch (command) {
                 case 1:
-                    System.out.println("Vehicle ID   Make / Model        Color       Mileage        Price");
-                    for(int i = 0; i < numberOfVehicles; i++){
-                        Vehicle v = vehicles[i];
-                        System.out.print(v);
-                    }
+                    doDisplayAllVehicles(vehicles, numberOfVehicles);
                     break;
+                case 2:
+                    MakeAndModel(vehicles, numberOfVehicles);
+                    break;
+                case 3:
+                    FindAllVehiclesByPrice(vehicles, numberOfVehicles);
+                    break;
+                case 4:
+                    FindAllVehiclesByColor(vehicles, numberOfVehicles);
+                    break;
+                case 5:
+                   numberOfVehicles = AddingAVehicle(vehicles, numberOfVehicles);
+break;
             }
         }while (command != 6);
+    }
+
+    private static void doDisplayAllVehicles(Vehicle[] vehicles, int numberOfVehicles){
+        System.out.println("Vehicle ID   Make / Model        Color       Mileage        Price");
+        for(int i = 0; i < numberOfVehicles; i++) {
+            Vehicle v = vehicles[i];
+            System.out.printf("%8d %15s %12s %13s %15.2f\n", v.getVehicleId(), v.getMakeModel(), v.getColor(), v.getOdometerReading(), v.getPrice());
+
+        }
+    }
+    private static void MakeAndModel(Vehicle[] vehicles, int numberOfVehicles){
+        for(int i = 0; i < numberOfVehicles; i++){
+            Vehicle v = vehicles[i];
+            System.out.printf("%s \n", v.getMakeModel());
+        }
+    }
+
+    private static void FindAllVehiclesByPrice(Vehicle[] vehicles, int numberOfVehicles){
+        for(int i = 0; i < numberOfVehicles; i++){
+            Vehicle v = vehicles[i];
+            System.out.printf("%.2f\n", v.getPrice());
+        }
+    }
+
+    private static void FindAllVehiclesByColor(Vehicle[] vehicles, int numberOfVehicles){
+        for(int i = 0; i < numberOfVehicles; i++){
+            Vehicle v = vehicles[i];
+            System.out.printf("%s\n", v.getColor());
+        }
+    }
+    private static int AddingAVehicle(Vehicle[] vehicles, int numberOfVehicles){
+        Scanner scanner = new Scanner(System.in);
+
+
+        System.out.print("What is the vehicles ID number? ");
+        long id = scanner.nextLong();
+        //car.setVehicleId(id);
+        System.out.print("What is the vehicle model? ");
+        String model = scanner.nextLine();
+        //car.setMakeModel(model);
+        System.out.print("What is the color of the vehicle? ");
+        String color = scanner.nextLine();
+        //car.setColor(color);
+        System.out.print("What is the odometer reading? ");
+        String or = scanner.nextLine();
+        //car.setOdometerReading(or);
+        System.out.print("What is the price of the vehicle? ");
+        double price = scanner.nextDouble();
+
+        Vehicle car = new Vehicle(id, model, color, or, price);
+
+        vehicles[numberOfVehicles] = car;
+        return numberOfVehicles + 1;
+
+       // System.out.println(car.getMakeModel());
+        //car.setPrice(price);
     }
 
 }
